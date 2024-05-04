@@ -110,33 +110,37 @@
     crossorigin="anonymous"></script>
 <script>
     function signup(event) {
-      event.preventDefault();
-      const name = document.getElementById("username").value;
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;  
-      fetch("/sign", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, password }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            console.log("Signup successful");
-            alert("Signup successful. You can now login.");
-            window.location.href="/login";
-          } else {
-            console.error("Signup failed:", data.message);
-          }
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-
-       
-    }
+          event.preventDefault(); // Prevent form submission
+          // Get form data
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;  
+          // Send POST request to Node.js server using Fetch API
+          fetch("/sign", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name, email, password }),
+          })
+            .then((response) => response.json()) // Parse response body as JSON
+            .then((data) => {
+              if (data.success) {
+                // Handle successful signup
+                
+                console.log("Signup successful");
+                alert("Signup successful. You can now login.");
+                // Redirect to login page or perform other actions
+                window.location.href="/login";
+              } else {
+                console.error("Signup failed:", data.message);
+                // Display error message or perform other actions
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        }
   </script>
 </body>
 </html>
