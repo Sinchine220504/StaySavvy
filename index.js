@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: String,
 });
-const User = mongoose.model("Id", userSchema);
+const User = mongoose.model("Profile", userSchema);
 
 app.use(express.json());
 
