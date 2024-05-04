@@ -61,7 +61,7 @@ app.use(express.static(path.join(__dirname, "frontend")));
             
             const user = await User.findOne({ email, password });
             if (user) {
-                res.json({ success: true, message: "Congratulations ${user.name}, you have successfully logged in", user });
+                res.json({ success: true, message: `Congratulations ${user.name}, you have successfully logged in`, user });
             } else {
                 res.status(401).json({ success: false, message: 'Invalid email or password' });
             }
