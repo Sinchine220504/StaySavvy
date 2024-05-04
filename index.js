@@ -30,41 +30,47 @@ app.use(express.static(path.join(__dirname, "frontend")));
   app.get("/login", (req, res) => {
       res.sendFile(path.join(__dirname, "frontend", "Login.html"));
     });
-    app.get("/about", (req, res) => {
-      res.sendFile(path.join(__dirname, "frontend", "aboutus.html"));
+    app.get("/dest", (req, res) => {
+      res.sendFile(path.join(__dirname, "frontend", "hotel(states).html"));
+    });
+    app.get("/hotels", (req, res) => {
+      res.sendFile(path.join(__dirname, "frontend", "hotel(main).html"));
     });
     app.get("/feedback", (req, res) => {
       res.sendFile(path.join(__dirname, "frontend", "feedback.html"));
     });
+    app.get("/punjab", (req, res) => {
+      res.sendFile(path.join(__dirname, "frontend", "punjab(main).html"));
+    });
     
     
-app.post("/sign", async (req, res) => {
-  try {
-    const _id = await getNextSequence();
-    const { name, email, password } = req.body;
-    const newUser = new User({ _id, name, email, password });
-    const savedUser = await newUser.save();
-    res.status(200).json({ success: true });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-app.post('/log', async (req, res) => {
-    const { email, password } = req.body;
-    try {
-        
-        const user = await User.findOne({ email, password });
-        if (user) {
-            res.json({ success: true, message: `Congratulations ${user.name}, you have successfully logged in`, user });
-        } else {
-            res.status(401).json({ success: false, message: 'Invalid email or password' });
+    app.post("/sign", async (req, res) => {
+      try {
+        const _id = await getNextSequence();
+        const { name, email, password } = req.body;
+        const newUser = new User({ _id, name, email, password });
+        const savedUser = await newUser.save();
+        res.status(200).json({ success: true });
+      } catch (err) {
+        res.status(500).json({ message: err.message });
+      }
+    });
+    app.post('/log', async (req, res) => {
+        const { email, password } = req.body;
+        try {
+            
+            const user = await User.findOne({ email, password });
+            if (user) {
+                res.json({ success: true, message: "Congratulations ${user.name}, you have successfully logged in", user });
+            } else {
+                res.status(401).json({ success: false, message: 'Invalid email or password' });
+            }
+        } catch (error) {
+            
+            console.error('Error finding user:', error);
+            res.status(500).json({ success: false, message: 'An error occurred while processing your request' });
         }
-    } catch (error) {
-        
-        console.error('Error finding user:', error);
-        res.status(500).json({ success: false, message: 'An error occurred while processing your request' });
-    }
-});
+    });
 
 const feedbackSchema = new mongoose.Schema({
   name: String,
