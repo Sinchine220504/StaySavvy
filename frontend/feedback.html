@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Loop</title>
+    <link rel="icon" href="images/headline.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+  font-family: "Times New Roman", Times, serif;
+}
+.navbar-dark {
+  background: linear-gradient(300deg, #f7eedd, #efbc9b, #fbf3d5, #d6dac8);
+  background-size: 180% 180%;
+  animation: gradient-animation 5s ease infinite;
+}
+
+.navbar-light {
+  background: linear-gradient(300deg, #f7eedd, #efbc9b, #fbf3d5, #d6dac8);
+  background-size: 180% 180%;
+  animation: gradient-animation 6s ease infinite;
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#cart {
+  margin-bottom: 20px;
+}
+#search-button {
+  margin-top: 6px;
+  height: 45px;
+  margin-bottom: 20px;
+}
+#search {
+  display: none;
+}
+#cart {
+  margin-left: 3rem;
+}
+
+.categories {
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+.row {
+  margin-bottom: 30px;
+}
+.img-fluid {
+  height: auto;
+  max-width: 100%;
+}
+.categories-list {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+.img-fluid {
+  transition: transform 0.2s;
+}
+.img-fluid:hover {
+  transform: scale(1.03);
+}
+img {
+  margin-bottom: 20px;
+}
+.featureIcon {
+  height: 80px;
+}
+footer {
+  background: linear-gradient(300deg, #FFA2B6, #efbc9b, #fbf3d5, #E7717D);
+  background-size: 180% 180%;
+  animation: gradient-animation 6s ease infinite;
+}
+
+.align-right {
+  display: flex;
+  justify-content: end;
+}
+.logo {
+  margin-bottom: 0px;
+  height: 80px;
+}
+.crown {
+  height: 50px;
+  margin-top: 12px;
+}
+.form {
+  margin: 0px 650px 0px 650px;
+}
+.user {
+  height: 100px;
+  margin-bottom: 10%;
+}
+a {
+  text-decoration: none;
+  color: #34495e;
+}
+    </style>
+</head>
+
+<body>
+
+    <header class="p-3 navbar-dark">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-center justify-content-lg-start"><a href="/"
+                    class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
+                    previewlistener="true">
+                    <img class="logo" src="images/logo.png" alt="">
+                </a>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="/" class="nav-link px-2 text-black">Home</a></li>
+                    <li><a href="/categories" class="nav-link px-2 text-black">Categories</a></li>
+                    <li><a href="index.html#trending" class="nav-link px-2 text-black">Trending</a></li>
+                    <li><a href="/membership" class="nav-link px-2 text-black">Membership</a></li>
+                </ul>
+                <div>
+                    <a href="/Sign"><img id="search-button" class="btn search" src=""
+                            alt=""></a>
+                </div>
+                <div>
+                    <a href="/cart"><img id="search-button" class="btn search" src="goa(hotel).png"
+                            alt=""></a>
+                </div>
+                <div>
+                    <a href="/login"><img id="search-button" class="btn search" src="hotel(mumbai).jpg"
+                            alt=""></a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <br> 
+    <br>
+    <br>
+    <div class="container">
+        <div class="form-container">
+            <h2>Feedback Form</h2>
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <select id="rating" name="rating" required>
+                        <option value="">Select a rating</option>
+                        <option value="5">Excellent</option>
+                        <option value="4">Very Good</option>
+                        <option value="3">Good</option>
+                        <option value="2">Fair</option>
+                        <option value="1">Poor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="feedback">Feedback</label>
+                    <textarea id="feedback" name="feedback" rows="4" required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <footer style="padding-top:20px;">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>About Us</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Company</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Careers</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Affiliates</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Stores</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>Useful Links</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Support</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Refund</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQ</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><a
+                            href="/feedback">Feedback</a></a>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Stories</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>Products</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><a
+                                    href="/shirts">Shirts</a></a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><a
+                                    href="/tshirts">T-shirts</a></a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><a
+                                    href="/tops">Tops</a></a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><a
+                                    href="/dresses">Dresses</a></a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><a
+                                    href="/jeans">Jeans</a></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-5 offset-md-1 mb-3">
+                    <form>
+                        <h5>Subscribe to our newsletter</h5>
+                        <p>Monthly digest of what's new and exciting from us.</p>
+                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                            <label for="newsletter1" class="visually-hidden">Email address</label>
+                            <input id="newsletter1" type="text" class="form-control" placeholder="Email address"
+                                data-listener-added_468748f3="true">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top mb-0">
+                <p>© 2024 Company, Inc. All rights reserved.</p>
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><img src="twitter.png" alt="Twitter"
+                                width="24" height="24"></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><img src="insta.png"
+                                alt="Instagram" width="24" height="24"></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><img src="facebook.png"
+                                alt="Facebook" width="24" height="24"></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><img src="whatsapp.png"
+                                alt="WhatsApp" width="24" height="24"></a></li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+        <script>
+    document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+        const formData = new FormData(this);
+        const feedbackData = {};
+        formData.forEach((value, key) => {
+            feedbackData[key] = value;
+        });
+
+        // Send feedback data to the server
+        sendFeedback(feedbackData);
+    });
+
+    function sendFeedback(data) {
+        fetch("/submit-feedback", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("Feedback submitted successfully!");
+                document.getElementById("feedbackForm").reset();
+            } else {
+                alert("Failed to submit feedback. Please try again later.");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred. Please try again later.");
+        });
+    }
+</script>
+</body>
+
+
+</html>
